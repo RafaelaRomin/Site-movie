@@ -1,3 +1,4 @@
+
 const API_URL = 'https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=3fd2be6f0c70a2a598f084ddfb75487c&page=1';
 const IMG_PATH = 'https://image.tmdb.org/t/p/w1280';
 const SEARCH_API = 'https://api.themoviedb.org/3/search/movie?api_key=3fd2be6f0c70a2a598f084ddfb75487c&query=';
@@ -15,3 +16,52 @@ async function getMovies(url) {
         console.log(error);
     }
 }
+
+
+function getClassByRate(vote_average) { 
+    if (vote_average >= 8) {
+        return 'green';
+    } else if (vote_average >= 5) {
+        return 'orange';
+    } else {
+        return 'red';
+    }
+}
+
+form.addEventListener('submit', async (e) => {  
+    e.preventDefault();
+    const searchTerm = search.value;
+
+    if (searchTerm && searchTerm !== '') {
+        displayMovies(SEARCH_API + searchTerm); 
+        search.value = ''; 
+    } else {
+        displayMovies(API_URL);
+    }
+});
+
+displayMovies(API_URL);
+
+async function displayMovies(url) {
+    const movies = await getMovies(url);
+    main.innerHTML = '';
+    movies.forEach((movie) => {
+        const { title, poster_path, vote_average, overview } = movie;
+        console.log(movie);
+        const movieEL = document.createElement('div');
+        movieEL.classList.add('movie');
+        movieEL.innerHTML = `
+            <img src="${IMG_PATH + poster_path}" alt="${title}" >
+            <div class="movie-info">
+                <h3>${title}</h3>
+                <span class="${getClassByRate(vote_average)}">${vote_average}</span>
+            </div>
+            <div class="overview">
+                <h3>Descrição</h3>
+                ${overview}
+            </div>
+        `;
+        main.appendChild(movieEL);
+    });
+}
+

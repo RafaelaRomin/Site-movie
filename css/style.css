@@ -1,3 +1,43 @@
+
+
+.movie-info h3 {
+    margin-top: 0;
+}
+.movie-info span {
+    background-color: var(--primary-color);
+    padding: 0.25rem 0.5rem;
+    border-radius: 3px;
+    font-weight: bold;
+}
+
+.movie-info span.green {
+    color: lightgreen;
+}
+
+.movie-info span.orange {
+    color: orange;
+}
+
+.movie-info span.red {
+    color: red;
+}
+
+.overview {
+    background-color: rgba(200, 200, 200);
+    padding: 2rem;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    max-height: 100%;
+    transform: translateY(101%);
+    overflow-y: auto;
+    transition: transform 0.4s ease-in;
+}
+
+.movie:hover .overview {
+    transform: translateY(0);
+
 .search::placeholder{
     color: #cd0930;
 }

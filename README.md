@@ -3,3 +3,5 @@
 Projeto desenvolvido utilizando HTML, CSS e Javascript.
 
 ![image](https://github.com/RafaelaRomin/Site-movie/assets/124751861/206664d8-b5de-403c-a1a2-aa65c391b7fa)
+![image](https://github.com/RafaelaRomin/Site-movie/assets/124751861/01345483-3951-414c-b17e-8e3d8c3b7034)
+
